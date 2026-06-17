@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Linux用語集</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Linux用語集</h1>
+
+<h2>WinSCP</h2>
+<p>
+WindowsからLinuxサーバーへファイルを転送するためのソフトウェア。
+</p>
+<pre>
+WinSCPでファイルをドラッグ＆ドロップして転送
+</pre>
+
+<h2>PATH</h2>
+<p>
+コマンドを実行するときに検索されるディレクトリの一覧。
+</p>
+<pre>
+echo $PATH
+</pre>
+
+<h2>リダイレクション</h2>
+<p>
+コマンドの実行結果をファイルへ出力する機能。
+</p>
+<pre>
+ls > list.txt
+</pre>
+
+<h2>パイプ</h2>
+<p>
+あるコマンドの実行結果を別のコマンドへ渡す機能。
+</p>
+<pre>
+cat kakeibo.txt | grep "収入"
+</pre>
+
+<h2>ワイルドカード</h2>
+<p>
+複数のファイルをまとめて指定するための記号。
+</p>
+<pre>
+ls *.txt
+</pre>
+
+<h2>ブレース展開</h2>
+<p>
+連続した文字列をまとめて作成する機能。
+</p>
+<pre>
+touch test{1..3}.txt
+</pre>
+
+<br>
+
+<a href="index.html">トップページへ戻る</a>
+
+</body>
+</html>

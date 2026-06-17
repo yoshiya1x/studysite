@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Linuxコマンド集</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Linuxコマンド集</h1>
+<input type="text" id="searchBox" placeholder="コマンドを検索">
+<table>
+<tr>
+    <th>コマンド</th>
+    <th>説明</th>
+    <th>使用例</th>
+</tr>
+
+<tr>
+    <td>ls</td>
+    <td>ファイル一覧表示</td>
+    <td>ls -l</td>
+</tr>
+
+<tr>
+    <td>cd</td>
+    <td>ディレクトリ移動</td>
+    <td>cd LinuxStudySite</td>
+</tr>
+
+<tr>
+    <td>cp</td>
+    <td>ファイルをコピー</td>
+    <td>cp test.txt backup.txt</td>
+</tr>
+
+<tr>
+    <td>mv</td>
+    <td>移動・名前変更</td>
+    <td>mv test.txt test2.txt</td>
+</tr>
+
+<tr>
+    <td>grep</td>
+    <td>文字列検索</td>
+    <td>grep "収入" kakeibo.txt</td>
+</tr>
+
+<tr>
+    <td>awk</td>
+    <td>列の抽出</td>
+    <td>awk '{print $1}' kakeibo.txt</td>
+</tr>
+
+<tr>
+    <td>head</td>
+    <td>先頭行を表示</td>
+    <td>head -n 5 file.txt</td>
+</tr>
+
+<tr>
+    <td>tail</td>
+    <td>末尾行を表示</td>
+    <td>tail -n 5 file.txt</td>
+</tr>
+
+<tr>
+    <td>sort</td>
+    <td>並び替え</td>
+    <td>sort 2023-09_log.txt</td>
+</tr>
+
+<tr>
+    <td>find</td>
+    <td>ファイル検索</td>
+    <td>find . -name "*.txt"</td>
+</tr>
+
+<tr>
+    <td>date</td>
+    <td>日時を表示</td>
+    <td>date</td>
+</tr>
+
+<tr>
+    <td>free</td>
+    <td>メモリ使用量確認</td>
+    <td>free -h</td>
+</tr>
+
+<tr>
+    <td>cat</td>
+    <td>ファイル内容表示</td>
+    <td>cat kakeibo.txt</td>
+</tr>
+
+<tr>
+    <td>mkdir</td>
+    <td>ディレクトリ作成</td>
+    <td>mkdir Test</td>
+</tr>
+
+<tr>
+    <td>touch</td>
+    <td>空ファイル作成</td>
+    <td>touch test.txt</td>
+</tr>
+
+<tr>
+    <td>pwd</td>
+    <td>現在地確認</td>
+    <td>pwd</td>
+</tr>
+<tr>
+    <td>rm</td>
+    <td>ファイルを削除</td>
+    <td>rm test.txt</td>
+</tr>
+
+<tr>
+    <td>tree</td>
+    <td>ディレクトリ構造を表示</td>
+    <td>tree</td>
+</tr>
+
+<tr>
+    <td>cut</td>
+    <td>列を抽出する</td>
+    <td>cut -f 1 -d " " file.txt</td>
+</tr>
+
+<tr>
+    <td>wc</td>
+    <td>行数や文字数を集計</td>
+    <td>wc -l file.txt</td>
+</tr>
+
+<tr>
+    <td>echo</td>
+    <td>文字列を出力</td>
+    <td>echo Hello</td>
+</tr>
+
+<tr>
+    <td>less</td>
+    <td>ファイル内容を閲覧</td>
+    <td>less log.txt</td>
+</tr>
+
+<tr>
+    <td>nano</td>
+    <td>ファイルを編集</td>
+    <td>nano test.txt</td>
+</tr>
+
+<tr>
+    <td>chmod</td>
+    <td>アクセス権を変更</td>
+    <td>chmod 755 test.sh</td>
+</tr>
+
+<tr>
+    <td>sudo</td>
+    <td>管理者権限で実行</td>
+    <td>sudo apt install tree</td>
+</tr>
+
+<tr>
+    <td>history</td>
+    <td>実行したコマンド履歴を表示</td>
+    <td>history</td>
+</tr>
+</table>
+
+<br>
+
+<a href="index.html">トップページへ戻る</a>
+<script>
+document.getElementById("searchBox").addEventListener("keyup", function() {
+    let keyword = this.value.toLowerCase();
+    let rows = document.querySelectorAll("table tr");
+
+    rows.forEach(function(row, index) {
+        if (index === 0) return;
+
+        let text = row.textContent.toLowerCase();
+
+        if (text.includes(keyword)) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    });
+});
+</script>
+</body>
+</html>
