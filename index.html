@@ -10,28 +10,43 @@
 <div class="header">
     <h1>Linux学習記録サイト</h1>
     <p>研修で学んだ内容をまとめています</p>
+
+<p id="clock"></p>
+
 </div>
 <div class="menu">
     <a href="command.html">💻 コマンド集</a>
     <a href="glossary.html">📖 用語集</a>
     <a href="report.html">📝 日報</a>
 </div>
+<button onclick="toggleDarkMode()">
+🌞🌙 モード切替
+</button>
 <div class="card">
-    <h2>📚 研修中の内容</h2>
+<h2 onclick="toggleMenu('training')">
+📚 研修中の内容 ▼
+</h2>
 
-    <ul>
-        <li>エディタ操作</li>
-        <li>ファイル・ディレクトリ</li>
-        <li>シェル操作・操作補助</li>
-        <li>権限・ユーザ管理</li>
-        <li>パッケージ管理</li>
-        <li>検索・抽出系コマンド</li>
-        <li>テキスト処理</li>
-        <li>差分・比較</li>
+<div id="training">
+
+<ul>
+    <li>エディタ操作</li>
+    <li>ファイル・ディレクトリ</li>
+    <li>シェル操作・操作補助</li>
+    <li>権限・ユーザ管理</li>
+    <li>パッケージ管理</li>
+    <li>検索・抽出系コマンド</li>
+    <li>テキスト処理</li>
+    <li>差分・比較</li>
+</ul>
 
 </div>        
 <div class="card">
-    <h2>📅 Linux研修スケジュール</h2>
+<h2 onclick="toggleMenu('schedule')">
+📅 Linux研修スケジュール ▼
+</h2>
+
+<div id="schedule">
 
 <ul>
     <li>Linuxの基本概念と環境理解</li>
@@ -42,6 +57,29 @@
     <li>シンボリックリンクとPATHの理解</li>
     <li>WinSCPと総合コマンド練習</li>
 </ul>
+
+</div>
+<div class="card">
+
+<h2 onclick="toggleMenu('quiz')">
+❓ Linuxクイズ ▼
+</h2>
+
+<div id="quiz">
+
+<p id="quizQuestion">
+ボタンを押して問題を表示
+</p>
+
+<div id="choices"></div>
+
+<p id="result"></p>
+
+<button onclick="showQuiz()">問題を出す</button>
+
+
+</div>
+
 </div>
     </table>
 
@@ -56,5 +94,436 @@
 <br><br>
 
 <a href="glossary.html">Linux用語集を見る</a>
+<script>
+
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+}
+
+function showCommand() {
+
+    const commands = [
+        "ls ",
+        "pwd ",
+        "cd ",
+        "grep ",
+        "awk ",
+        "sort ",
+        "find ",
+        "tail ",
+        "head ",
+        "mkdir "
+    ];
+
+    const random =
+        commands[Math.floor(Math.random() * commands.length)];
+
+    document.getElementById("randomCommand").innerText =
+        random;
+}
+function updateClock() {
+
+    const now = new Date();
+
+    document.getElementById("clock").innerText =
+        now.toLocaleString();
+}
+
+setInterval(updateClock, 1000);
+
+updateClock();
+
+function toggleMenu(id) {
+
+    let menu = document.getElementById(id);
+
+    if (menu.style.display === "none") {
+        menu.style.display = "block";
+    } else {
+        menu.style.display = "none";
+    }
+}
+const quizzes = [
+
+    {
+        q: "grep の役割は？",
+        choices: [
+            "ディレクトリ作成",
+            "文字列検索",
+            "ファイル削除",
+            "権限変更"
+        ],
+        answer: 1
+    },
+
+    {
+        q: "pwd の役割は？",
+        choices: [
+            "現在地表示",
+            "ファイル検索",
+            "コピー",
+            "並び替え"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "mkdir の役割は？",
+        choices: [
+            "削除",
+            "移動",
+            "ディレクトリ作成",
+            "内容表示"
+        ],
+        answer: 2
+    },
+
+    {
+        q: "sort の役割は？",
+        choices: [
+            "ファイル削除",
+            "並び替え",
+            "権限変更",
+            "検索"
+        ],
+        answer: 1
+    },
+
+    {
+        q: "find の役割は？",
+        choices: [
+            "ファイル検索",
+            "コピー",
+            "表示",
+            "作成"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "ls の役割は？",
+        choices: [
+            "ファイル一覧表示",
+            "移動",
+            "削除",
+            "編集"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "cd の役割は？",
+        choices: [
+            "ディレクトリ作成",
+            "ディレクトリ移動",
+            "削除",
+            "検索"
+        ],
+        answer: 1
+    },
+
+    {
+        q: "cp の役割は？",
+        choices: [
+            "コピー",
+            "削除",
+            "移動",
+            "検索"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "mv の役割は？",
+        choices: [
+            "ファイル移動・名前変更",
+            "削除",
+            "表示",
+            "作成"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "rm の役割は？",
+        choices: [
+            "ファイル削除",
+            "コピー",
+            "表示",
+            "検索"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "cat の役割は？",
+        choices: [
+            "ファイル内容表示",
+            "削除",
+            "移動",
+            "作成"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "head の役割は？",
+        choices: [
+            "末尾表示",
+            "先頭行表示",
+            "検索",
+            "削除"
+        ],
+        answer: 1
+    },
+
+    {
+        q: "tail の役割は？",
+        choices: [
+            "先頭行表示",
+            "末尾行表示",
+            "コピー",
+            "移動"
+        ],
+        answer: 1
+    },
+
+    {
+        q: "touch の役割は？",
+        choices: [
+            "空ファイル作成",
+            "削除",
+            "表示",
+            "検索"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "mkdir -p の役割は？",
+        choices: [
+            "親ディレクトリもまとめて作成",
+            "削除",
+            "表示",
+            "移動"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "chmod の役割は？",
+        choices: [
+            "権限変更",
+            "コピー",
+            "削除",
+            "検索"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "chown の役割は？",
+        choices: [
+            "所有者変更",
+            "表示",
+            "移動",
+            "作成"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "ps の役割は？",
+        choices: [
+            "プロセス表示",
+            "削除",
+            "コピー",
+            "検索"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "top の役割は？",
+        choices: [
+            "リアルタイムプロセス監視",
+            "ファイル作成",
+            "移動",
+            "削除"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "df の役割は？",
+        choices: [
+            "ディスク使用量表示",
+            "コピー",
+            "削除",
+            "検索"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "du の役割は？",
+        choices: [
+            "ディレクトリ容量確認",
+            "表示",
+            "移動",
+            "削除"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "echo の役割は？",
+        choices: [
+            "文字列出力",
+            "削除",
+            "検索",
+            "移動"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "which の役割は？",
+        choices: [
+            "コマンドの場所表示",
+            "削除",
+            "コピー",
+            "作成"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "man の役割は？",
+        choices: [
+            "マニュアル表示",
+            "削除",
+            "移動",
+            "検索"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "history の役割は？",
+        choices: [
+            "コマンド履歴表示",
+            "削除",
+            "コピー",
+            "検索"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "ln -s の役割は？",
+        choices: [
+            "シンボリックリンク作成",
+            "削除",
+            "表示",
+            "移動"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "|（パイプ）の役割は？",
+        choices: [
+            "コマンド結果を次に渡す",
+            "削除",
+            "コピー",
+            "表示"
+        ],
+        answer: 0
+    },
+
+    {
+        q: "> の役割は？",
+        choices: [
+            "出力をファイルに保存",
+            "削除",
+            "移動",
+            "検索"
+        ],
+        answer: 0
+    },
+
+    {
+        q: ">> の役割は？",
+        choices: [
+            "追記して保存",
+            "削除",
+            "コピー",
+            "表示"
+        ],
+        answer: 0
+    }
+
+];
+let currentAnswer = "";
+function showQuiz() {
+
+    const random =
+        quizzes[Math.floor(Math.random() * quizzes.length)];
+
+    document.getElementById("quizQuestion").innerText =
+        random.q;
+
+    document.getElementById("result").innerText = "";
+
+    const choicesDiv =
+        document.getElementById("choices");
+
+    choicesDiv.innerHTML = "";
+
+    random.choices.forEach((choice, index) => {
+
+        const btn = document.createElement("button");
+
+        btn.innerText = choice;
+
+        btn.onclick = function () {
+            checkAnswer(index, random.answer);
+        };
+
+        choicesDiv.appendChild(btn);
+    });
+}
+
+function checkAnswer(selected, correct) {
+
+    if (selected === correct) {
+        document.getElementById("result").innerText = "正解 🎉";
+    } else {
+        document.getElementById("result").innerText = "不正解 ❌";
+    }
+}
+
+
+function checkAnswer(selected, correct) {
+
+    const result = document.getElementById("result");
+
+    if (selected === correct) {
+        result.innerText = "正解 🎉";
+        result.style.color = "#2e7d32";
+
+        result.style.transform = "scale(1.2)";
+        setTimeout(() => {
+            result.style.transform = "scale(1)";
+        }, 200);
+
+    } else {
+        result.innerText = "不正解 ❌";
+        result.style.color = "#c62828";
+    }
+}
+</script>
 </body>
 </html>
+

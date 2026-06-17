@@ -119,3 +119,108 @@ a:hover {
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
+.dark-mode {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.dark-mode .card {
+    background-color: #2d2d2d;
+}
+
+.dark-mode table {
+    background-color: #2d2d2d;
+    color: white;
+}
+
+.dark-mode ul {
+    background-color: #2d2d2d;
+}
+
+.dark-mode th {
+    background-color: #2196F3;
+}
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+h2 {
+    cursor: pointer;
+}
+
+h2:hover {
+    color: #2196F3;
+}
+
+#choices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+#choices button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+#choices button:hover {
+    background-color: #4CAF50;
+    color: white;
+    transform: scale(1.02);
+}
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #4CAF50, #2196F3);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+
+
+#choices button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 8px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+}
+#choices button:hover {
+    background-color: #45a049;
+}
+#choices button {
+    background: #4CAF50 !important;
+    color: white !important;
+}
+#choices button:active {
+    transform: scale(0.96);
+}
+#choices button {
+    transition: 0.15s;
+}
